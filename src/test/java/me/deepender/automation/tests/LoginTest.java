@@ -1,5 +1,6 @@
 package me.deepender.automation.tests;
 
+import me.deepender.automation.constants.FrameworkConstants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ public class LoginTest {
 
     @Test
     public void test1(){
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com");
         driver.findElement(By.name("q")).sendKeys("Selenium", Keys.ENTER);
