@@ -8,7 +8,7 @@
                     <include name="test2"/>
                 </methods>
             </class>
-            <class name="me.deepender.automation.tests.LoginTest">
+            <class name="me.deepender.automation.tests.LoginPageTest">
                 <methods>
                     <include name="test1"/>
                     <include name="test2"/>
