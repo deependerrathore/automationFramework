@@ -14,7 +14,7 @@ public final class LoginPageTest extends BaseTest {
     @Test
     public void test1() {
         Driver.initDriver();
-        Driver.driver.findElement(By.name("q")).sendKeys("Selenium", Keys.ENTER);
+        Driver.getDriver().findElement(By.name("q")).sendKeys("Selenium", Keys.ENTER);
     }
 
 }

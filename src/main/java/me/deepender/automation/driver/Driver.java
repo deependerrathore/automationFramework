@@ -8,20 +8,34 @@ import java.util.Objects;
 
 public class Driver {
 
-    public static WebDriver driver;
+    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
+
+    public static WebDriver getDriver() {
+        return webDriverThreadLocal.get();
+    }
+
+    public static void unloadDriver() {
+        webDriverThreadLocal.remove();
+    }
+
+    public static void setDriver(WebDriver driver) {
+        webDriverThreadLocal.set(driver);
+    }
 
     public static void initDriver() {
         System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
-        if (Objects.isNull(driver)) {
+        if (Objects.isNull(getDriver())) {
             driver = new ChromeDriver();
+            setDriver(driver);
         }
-        driver.get("https://www.google.com");
+        getDriver().get("https://www.google.com");
     }
 
     public static void quitDriver() {
-        if (Objects.nonNull(driver)) {
-            driver.quit();
-            driver = null;
+        if (Objects.nonNull(getDriver())) {
+            getDriver().quit();
+            unloadDriver();
         }
     }
 }

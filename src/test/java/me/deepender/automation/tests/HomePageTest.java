@@ -13,6 +13,6 @@ public final class HomePageTest extends BaseTest {
 
     @Test
     public void test2() {
-        Driver.driver.findElement(By.name("q")).sendKeys("DevOps", Keys.ENTER);
+        Driver.getDriver().findElement(By.name("q")).sendKeys("DevOps", Keys.ENTER);
     }
 }
