@@ -6,6 +6,7 @@
             <class name="me.deepender.automation.tests.HomePageTest">
                 <methods>
                     <include name="test2"/>
+                    <include name="test3"/>
                 </methods>
             </class>
             <class name="me.deepender.automation.tests.LoginPageTest">

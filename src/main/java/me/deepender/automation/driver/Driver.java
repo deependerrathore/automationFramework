@@ -6,36 +6,27 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
 
-public class Driver {
+public final class Driver {
+
+    private Driver() {
+
+    }
 
     private static WebDriver driver;
-    private static ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
-
-    public static WebDriver getDriver() {
-        return webDriverThreadLocal.get();
-    }
-
-    public static void unloadDriver() {
-        webDriverThreadLocal.remove();
-    }
-
-    public static void setDriver(WebDriver driver) {
-        webDriverThreadLocal.set(driver);
-    }
 
     public static void initDriver() {
         System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
-        if (Objects.isNull(getDriver())) {
+        if (Objects.isNull(DriverManager.getDriver())) {
             driver = new ChromeDriver();
-            setDriver(driver);
+            DriverManager.setDriver(driver);
         }
-        getDriver().get("https://www.google.com");
+        DriverManager.getDriver().get("https://www.google.com");
     }
 
     public static void quitDriver() {
-        if (Objects.nonNull(getDriver())) {
-            getDriver().quit();
-            unloadDriver();
+        if (Objects.nonNull(DriverManager.getDriver())) {
+            DriverManager.getDriver().quit();
+            DriverManager.unloadDriver();
         }
     }
 }
