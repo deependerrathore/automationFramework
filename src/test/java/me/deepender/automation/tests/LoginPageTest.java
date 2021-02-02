@@ -1,6 +1,5 @@
 package me.deepender.automation.tests;
 
-import me.deepender.automation.driver.Driver;
 import me.deepender.automation.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,7 +13,6 @@ public final class LoginPageTest extends BaseTest {
 
     @Test
     public void test1() {
-        Driver.initDriver();
         DriverManager.getDriver().findElement(By.name("q")).sendKeys("Selenium", Keys.ENTER);
     }
 

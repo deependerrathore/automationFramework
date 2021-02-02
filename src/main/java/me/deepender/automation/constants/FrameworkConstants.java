@@ -8,7 +8,7 @@ public final class FrameworkConstants {
 
     }
 
-    private static final String CHROME_DRIVER_PATH = System.getProperty("user.dir")+"/src/test/resources/chromedriver";
+    private static final String CHROME_DRIVER_PATH = System.getProperty("user.dir")+"/src/test/resources/driverBinary/chromedriver";
 
     public static String getChromeDriverPath() {
         return CHROME_DRIVER_PATH;

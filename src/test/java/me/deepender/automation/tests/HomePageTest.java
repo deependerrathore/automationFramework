@@ -1,6 +1,5 @@
 package me.deepender.automation.tests;
 
-import me.deepender.automation.driver.Driver;
 import me.deepender.automation.driver.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -17,9 +16,4 @@ public final class HomePageTest extends BaseTest {
         DriverManager.getDriver().findElement(By.name("q")).sendKeys("DevOps", Keys.ENTER);
     }
 
-
-    @Test
-    public void test3() {
-        DriverManager.getDriver().findElement(By.name("q")).sendKeys("Kuber", Keys.ENTER);
-    }
 }

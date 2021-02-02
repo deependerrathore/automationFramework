@@ -1,7 +1,7 @@
 package me.deepender.automation.driver;
 
 import me.deepender.automation.constants.FrameworkConstants;
-import org.openqa.selenium.WebDriver;
+import me.deepender.automation.utils.ReadPropertyFile;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
@@ -12,15 +12,12 @@ public final class Driver {
 
     }
 
-    private static WebDriver driver;
-
-    public static void initDriver() {
-        System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
+    public static void initDriver() throws Exception {
         if (Objects.isNull(DriverManager.getDriver())) {
-            driver = new ChromeDriver();
-            DriverManager.setDriver(driver);
+            System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromeDriverPath());
+            DriverManager.setDriver(new ChromeDriver());
+            DriverManager.getDriver().get(ReadPropertyFile.getValue("url"));
         }
-        DriverManager.getDriver().get("https://www.google.com");
     }
 
     public static void quitDriver() {
