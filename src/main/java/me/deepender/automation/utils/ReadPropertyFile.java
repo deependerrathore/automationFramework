@@ -30,6 +30,13 @@ public class ReadPropertyFile {
         }
     }
 
+    /**
+     * Execution will be faster if the key will get use multiple times in framework say 100 key value will be called 500times in framework
+     *
+     * @param key
+     * @return
+     * @throws Exception
+     */
     public static String getValueFromMap(String key) throws Exception {
         if (Objects.isNull(key) || Objects.isNull(CONFIG_MAP.get(key))) {
             throw new Exception("Property name " + key + " is not valid. Please check the config.properties");
@@ -37,6 +44,13 @@ public class ReadPropertyFile {
         return CONFIG_MAP.get(key);
     }
 
+    /**
+     * Can be used if we have few key value which is not frequently used in framework
+     *
+     * @param key
+     * @return
+     * @throws Exception
+     */
     public static String getValue(String key) throws Exception {
         if (Objects.isNull(properties.getProperty(key)) || Objects.isNull(key)) {
             throw new Exception("Property name " + key + " is not valid. Please check the config.properties");
