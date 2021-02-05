@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
@@ -19,9 +20,9 @@ public class ReadPropertyFile {
         try {
             FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
             properties.load(file);
-            for (Object key :
-                    properties.keySet()) {
-                CONFIG_MAP.put(String.valueOf(key), String.valueOf(properties.getProperty((String) key)));
+            for (Map.Entry<Object, Object> entry:
+                    properties.entrySet()) {
+                CONFIG_MAP.put(String.valueOf(entry.getKey()),String.valueOf(entry.getValue()));
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -46,6 +47,7 @@ public class ReadPropertyFile {
 
     /**
      * Can be used if we have few key value which is not frequently used in framework
+     * And we think that HashTable to HashMap conversion will take time rather than reading the property directly
      *
      * @param key
      * @return
