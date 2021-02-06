@@ -1,5 +1,7 @@
 package me.deepender.automation.utils;
 
+import me.deepender.automation.constants.FrameworkConstants;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,12 +20,9 @@ public class ReadPropertyFile {
 
     static {
         try {
-            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/config/config.properties");
+            FileInputStream file = new FileInputStream(FrameworkConstants.getConfigFilePath());
             properties.load(file);
-            for (Map.Entry<Object, Object> entry:
-                    properties.entrySet()) {
-                CONFIG_MAP.put(String.valueOf(entry.getKey()),String.valueOf(entry.getValue()));
-            }
+            properties.entrySet().forEach(entry -> CONFIG_MAP.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue())));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
