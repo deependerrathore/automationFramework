@@ -3,18 +3,20 @@
 <suite name="All Test Suite" thread-count="2" parallel="classes">
     <test verbose="2" preserve-order="true" name="/home/deepak/development/testing/automationFramework">
         <classes>
-            <class name="me.deepender.automation.tests.HomePageTest">
-                <methods>
-                    <include name="test2"/>
-                    <include name="test3"/>
-                </methods>
-            </class>
+<!--            <class name="me.deepender.automation.tests.HomePageTest">-->
+<!--                <methods>-->
+<!--                    <include name="test2"/>-->
+<!--                    <include name="test3"/>-->
+<!--                </methods>-->
+<!--            </class>-->
 <!--            <class name="me.deepender.automation.tests.LoginPageTest">-->
 <!--                <methods>-->
 <!--                    <include name="test1"/>-->
 <!--                    <include name="test2"/>-->
 <!--                </methods>-->
 <!--            </class>-->
+            <class name="me.deepender.automation.tests.OrangeHRMTests">
+            </class>
         </classes>
     </test>
 </suite>
