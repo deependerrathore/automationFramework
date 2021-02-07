@@ -1,13 +1,14 @@
 package me.deepender.automation.tests;
 
 import me.deepender.automation.driver.DriverManager;
-import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public final class HomePageTest extends BaseTest {
 
@@ -26,17 +27,17 @@ public final class HomePageTest extends BaseTest {
         DriverManager.getDriver().findElement(By.name("q")).sendKeys("DevOps", Keys.ENTER);
         String title = DriverManager.getDriver().getTitle();
 
-        Assertions.assertThat(title)
+        assertThat(title)
                 .as("Title is not matching").containsIgnoringCase("Google Search")
                 .isNotNull()
-                .hasSizeBetween(15,100)
-                .matches("\\w.*" +" Google Search");
+                .hasSizeBetween(15, 100)
+                .matches("\\w.*" + " Google Search");
 
         List<WebElement> elementList = DriverManager.getDriver().findElements(By.xpath("//h3/span"));
 
-        Assertions.assertThat(elementList)
+        assertThat(elementList)
                 .hasSize(19)
-                .extracting(e->e.getText())
+                .extracting(e -> e.getText())
                 .contains("DevOps - Wikipedia");
     }
 
