@@ -1,6 +1,7 @@
 package me.deepender.automation.utils;
 
 import me.deepender.automation.constants.FrameworkConstants;
+import me.deepender.automation.enums.ConfigProperties;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,8 +11,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
-public class ReadPropertyFile {
-    private ReadPropertyFile() {
+public class PropertyUtils {
+    private PropertyUtils() {
 
     }
 
@@ -37,11 +38,11 @@ public class ReadPropertyFile {
      * @return
      * @throws Exception
      */
-    public static String getValueFromMap(String key) throws Exception {
+    public static String getValueFromMap(ConfigProperties key) throws Exception {
         if (Objects.isNull(key) || Objects.isNull(CONFIG_MAP.get(key))) {
             throw new Exception("Property name " + key + " is not valid. Please check the config.properties");
         }
-        return CONFIG_MAP.get(key);
+        return CONFIG_MAP.get(key.name().toLowerCase());
     }
 
     /**
