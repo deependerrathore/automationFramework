@@ -1,13 +1,10 @@
 package me.deepender.automation.pages;
 
-import me.deepender.automation.constants.FrameworkConstants;
 import me.deepender.automation.driver.DriverManager;
 import me.deepender.automation.enums.WaitStrategy;
 import me.deepender.automation.factories.ExplicitWaitFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
     protected BasePage() {

@@ -1,6 +1,5 @@
 package me.deepender.automation.pages;
 
-import me.deepender.automation.driver.DriverManager;
 import me.deepender.automation.enums.WaitStrategy;
 import org.openqa.selenium.By;
 
