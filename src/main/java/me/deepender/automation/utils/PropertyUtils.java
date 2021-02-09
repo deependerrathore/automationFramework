@@ -38,7 +38,7 @@ public class PropertyUtils {
      * @throws Exception
      */
     public static String getValueFromMap(ConfigProperties key) throws Exception {
-        if (Objects.isNull(key) || Objects.isNull(CONFIG_MAP.get(key))) {
+        if (Objects.isNull(key) || Objects.isNull(CONFIG_MAP.get(key.name().toLowerCase()))) {
             throw new Exception("Property name " + key + " is not valid. Please check the config.properties");
         }
         return CONFIG_MAP.get(key.name().toLowerCase());
