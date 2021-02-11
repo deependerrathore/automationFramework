@@ -15,8 +15,9 @@
 <!--                    <include name="test2"/>-->
 <!--                </methods>-->
 <!--            </class>-->
-            <class name="me.deepender.automation.tests.OrangeHRMTests">
-            </class>
+<!--            <class name="me.deepender.automation.tests.OrangeHRMTests">-->
+<!--            </class>-->
+            <class name="me.deepender.automation.tests.DataProviderTest"></class>
         </classes>
     </test>
 </suite>
