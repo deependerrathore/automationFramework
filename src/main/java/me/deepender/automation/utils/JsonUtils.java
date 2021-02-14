@@ -1,5 +1,6 @@
 package me.deepender.automation.utils;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import me.deepender.automation.constants.FrameworkConstants;
 import me.deepender.automation.enums.ConfigProperties;
@@ -21,7 +22,8 @@ public class JsonUtils {
     static {
         try {
             FileInputStream file = new FileInputStream(FrameworkConstants.getJsonConfigFilePath());
-            CONFIG_MAP = new ObjectMapper().readValue(file, HashMap.class);
+            CONFIG_MAP = new ObjectMapper().readValue(file, new TypeReference<HashMap<String, String>>() {
+            });
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
