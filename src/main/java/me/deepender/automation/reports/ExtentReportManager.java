@@ -9,15 +9,15 @@ public final class ExtentReportManager {
 
     private static ThreadLocal<ExtentTest> extentTestThreadLocal = new ThreadLocal<>();
 
-    public static ExtentTest getExtentTest() {
+    static ExtentTest getExtentTest() {
         return extentTestThreadLocal.get();
     }
 
-    public static void setExtentTest(ExtentTest test) {
+    static void setExtentTest(ExtentTest test) {
         extentTestThreadLocal.set(test);
     }
 
-    public static void unloadExtentTest() {
+    static void unloadExtentTest() {
         extentTestThreadLocal.remove();
     }
 }

@@ -1,8 +1,7 @@
 package me.deepender.automation.pages;
 
 import me.deepender.automation.enums.WaitStrategy;
-import me.deepender.automation.reports.ExtentReport;
-import me.deepender.automation.reports.ExtentReportManager;
+import me.deepender.automation.reports.ExtentLogger;
 import org.openqa.selenium.By;
 
 public final class OrangeHRMLoginPage extends BasePage {
@@ -12,21 +11,21 @@ public final class OrangeHRMLoginPage extends BasePage {
 
     public OrangeHRMLoginPage setUsername(String username) {
         sendKeys(textboxUsername, username, WaitStrategy.PRESENT);
-        ExtentReportManager.getExtentTest().pass("Entered the username");
+        ExtentLogger.pass("Entered the username");
         return this;
     }
 
 
     public OrangeHRMLoginPage setPassword(String password) {
         sendKeys(textboxPassword, password, WaitStrategy.PRESENT);
-        ExtentReportManager.getExtentTest().pass("Entered the password");
+        ExtentLogger.pass("Entered the password");
         return this;
     }
 
 
     public OrangeHRMHomePage clickLoginBtn() {
         click(loginButton, WaitStrategy.CLICKABLE);
-        ExtentReportManager.getExtentTest().pass("Clicked the login button");
+        ExtentLogger.pass("Clicked the login button");
         return new OrangeHRMHomePage();
     }
 
