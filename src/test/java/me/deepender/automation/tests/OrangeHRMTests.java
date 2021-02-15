@@ -20,7 +20,6 @@ public final class OrangeHRMTests extends BaseTest {
 
     @Test(dataProvider = "LoginLogoutDataProvier")
     public void loginLogout(HashMap<String,String> map) throws InterruptedException {
-        ExtentReport.createTet("loginLogout");
         String title = new OrangeHRMLoginPage()
                 .setUsername(map.get("username")).setPassword(map.get("password")).clickLoginBtn()
                 .clickWelcome().clickLogout()

@@ -11,18 +11,7 @@ import java.io.IOException;
 
 public class BaseTest {
 
-    protected BaseTest(){
-
-    }
-
-    @BeforeSuite
-    public void beforeSuite(){
-        ExtentReport.intiReport();
-    }
-
-    @AfterSuite
-    public void afterSuite() throws IOException {
-        ExtentReport.flushReport();
+    protected BaseTest() {
     }
 
     @BeforeMethod

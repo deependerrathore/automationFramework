@@ -36,7 +36,7 @@ public final class ExtentReport {
         Desktop.getDesktop().browse(new File("index.html").toURI());
     }
 
-    public static void createTet(String testName) {
+    public static void createTest(String testName) {
         ExtentReportManager.setExtentTest(extentReports.createTest(testName));
     }
 }

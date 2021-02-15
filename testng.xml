@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" thread-count="2" data-provider-thread-count="3" parallel="classes">
+    <listeners>
+        <listener class-name="me.deepender.automation.listners.ListnerClass"></listener>
+    </listeners>
     <test verbose="2" preserve-order="true" name="/home/deepak/development/testing/automationFramework">
         <classes>
 <!--            <class name="me.deepender.automation.tests.HomePageTest">-->
