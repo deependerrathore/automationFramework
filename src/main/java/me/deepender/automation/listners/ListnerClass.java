@@ -8,11 +8,16 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ListnerClass implements ITestListener, ISuiteListener {
     @Override
     public void onStart(ISuite suite) {
-        ExtentReport.intiReport();
+        try {
+            ExtentReport.intiReport();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -21,12 +26,14 @@ public class ListnerClass implements ITestListener, ISuiteListener {
             ExtentReport.flushReport();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentReport.createTest(result.getMethod().getMethodName());
+        ExtentReport.createTest(result.getMethod().getDescription());
     }
 
     @Override
@@ -36,7 +43,13 @@ public class ListnerClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentLogger.fail(result.getMethod().getMethodName() + " is FAILED");
+        try {
+            ExtentLogger.fail(result.getMethod().getMethodName() + " is FAILED", true);
+            ExtentLogger.fail(result.getThrowable().toString());
+            ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

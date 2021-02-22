@@ -1,7 +1,6 @@
 package me.deepender.automation.tests;
 
 import me.deepender.automation.pages.OrangeHRMLoginPage;
-import me.deepender.automation.reports.ExtentReport;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.assertj.core.api.Assertions;
@@ -22,6 +21,17 @@ public final class OrangeHRMTests extends BaseTest {
     public void loginLogout(HashMap<String,String> map) throws InterruptedException {
         String title = new OrangeHRMLoginPage()
                 .setUsername(map.get("username")).setPassword(map.get("password")).clickLoginBtn()
+                .clickWelcome().clickLogout()
+                .getTitle();
+
+        Assertions.assertThat(title)
+                .isEqualTo("OrangeHRM");
+    }
+
+    @Test
+    public void testDummy() throws InterruptedException {
+        String title = new OrangeHRMLoginPage()
+                .setUsername("Admin").setPassword("admin123").clickLoginBtn()
                 .clickWelcome().clickLogout()
                 .getTitle();
 

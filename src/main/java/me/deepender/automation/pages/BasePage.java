@@ -15,13 +15,21 @@ public class BasePage {
     protected void click(By by, WaitStrategy waitStrategy, String elementDescription) {
         WebElement webElement = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
         webElement.click();
-        ExtentLogger.pass(elementDescription + " is clicked");
+        try {
+            ExtentLogger.pass(elementDescription + " is clicked", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected void sendKeys(By by, String value, WaitStrategy waitStrategy, String elementDescription) {
         WebElement webElement = ExplicitWaitFactory.performExplicitWait(waitStrategy, by);
         webElement.sendKeys(value);
-        ExtentLogger.pass("'" +value+"'" + " is entered successfully in " + elementDescription);
+        try {
+            ExtentLogger.pass("'" + value + "'" + " is entered successfully in " + elementDescription, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected String getPageTitle() {

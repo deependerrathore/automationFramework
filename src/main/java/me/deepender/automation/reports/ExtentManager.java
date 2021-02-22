@@ -2,8 +2,8 @@ package me.deepender.automation.reports;
 
 import com.aventstack.extentreports.ExtentTest;
 
-public final class ExtentReportManager {
-    private ExtentReportManager() {
+public final class ExtentManager {
+    private ExtentManager() {
 
     }
 
